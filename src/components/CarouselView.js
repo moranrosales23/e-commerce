@@ -4,7 +4,7 @@ import { Carousel } from 'react-bootstrap';
 import getEvenElement from '../utils/getEvenElement';
 
 function CarouselView({ images }) {
-  const [click, setClick] = useState(true) 
+  const [click, setClick] = useState() 
 
 
   const handleClick = () => {
@@ -12,7 +12,7 @@ function CarouselView({ images }) {
   }
 
   const handleDelete = () => {
-     axios.delete('lll', id)
+     
   }
 
   useEffect(()=> {
@@ -22,7 +22,7 @@ function CarouselView({ images }) {
   return (
     <>
       <a onClick={handleClick}>Click</a>
-      <a onClick={handleDelete}>Borrar</a>
+      <a onClick={handleDelete}></a>
       <Carousel>
         { images.map((element, index) => (  //[0, 1, 2, 3]
            getEvenElement(index) && (   
