@@ -2,15 +2,12 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
-import { Navbar, Container, Nav, Row, Col, InputGroup, FormControl, ListGroup, Carousel, Card, Button } from 'react-bootstrap';
+// import { Navbar, Container, Nav, Row, Col, InputGroup, FormControl, ListGroup, Carousel, Card, Button } from 'react-bootstrap';
 import CarouselView from './components/CarouselView';
 import Layout from './components/Layout';
 
 import images from './mock/carouselMock'
-
-// HeaderForm -> Pascal Case
-// header_form -> snake Case
-// headerForm -> cammel case
+import CardList from './components/CardList';
 
 function App() {
 
@@ -19,6 +16,7 @@ function App() {
     <>
       <Layout>
         <CarouselView images={images} />
+        <CardList />
       </Layout>
 
       {/* <Container>

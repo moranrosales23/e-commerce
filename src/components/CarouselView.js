@@ -1,32 +1,34 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 
 import getEvenElement from '../utils/getEvenElement';
 
+
 function CarouselView({ images }) {
-  const [click, setClick] = useState(true) 
+  const [form, setForm] = useState({
+    zipCode: "",
+    name: "",
+    address: "",
+  })
 
+  useEffect(()=> { 
 
-  const handleClick = () => {
-    setClick(false)
+  }, [])
+
+  const handleChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    setForm({ ...form, [name]: value})
   }
-
-  const handleDelete = () => {
-     axios.delete('lll', id)
-  }
-
-  useEffect(()=> {
-    console.log('Corrio el componente del carousel')
-  }, [click])
 
   return (
+    
     <>
-      <a onClick={handleClick}>Click</a>
-      <a onClick={handleDelete}>Borrar</a>
       <Carousel>
         { images.map((element, index) => (  //[0, 1, 2, 3]
            getEvenElement(index) && (   
-            <Carousel.Item>
+            <Carousel.Item key={index}>
             <img
               className="d-block w-100"
               src={element}
@@ -37,6 +39,30 @@ function CarouselView({ images }) {
           
         )}
       </Carousel>
+      <input 
+        className="password-input" 
+        placeholder="Ingrese aqui la direccion"
+        name="address"
+        type="text"
+        value={form.address}
+        onChange={handleChange}
+      />
+      <input 
+        className="password-input" 
+        placeholder="Ingrese aqui la direccion"
+        name="name"
+        type="text"
+        value={form.name}
+        onChange={handleChange}
+      />
+      <input 
+        value={form.zipCode}
+        className="password-input" 
+        placeholder="Ingrese aqui la direccion"
+        name="zipCode"
+        type="text"
+        onChange={handleChange}
+      />
     </>
   );
 }

@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { useState } from 'react';
 import {Col, Card, Button} from 'react-bootstrap';
-import '../assets/styles/components/cardTemplate.css'
 
 function CardTemplate(props) {
   const imageUrl = props.imageUrl
@@ -13,9 +13,19 @@ function CardTemplate(props) {
     setCounter(counter + 1)
   }
 
+  function handleDelete() {
+    // confirme si desea eliminar
+    axios.delete(`https://fakestoreapi.com/products/${props.id}`)
+    .then((res) => { console.log("response", res)})
+
+
+    // renderizar de nuevo la pagina de inicio para verificar que aparezca
+  }
+
   return (
     <Col lg={4}>
-      <Card className="hidden">
+      <Card className="hidden" key={props.id}>
+        <button onClick={handleDelete}>Eliminar</button>
         <Card.Img
           variant="top"
           src={imageUrl}
@@ -28,7 +38,7 @@ function CardTemplate(props) {
           </Card.Text>
           <button onClick={handleClick}>Like</button>
           <Button variant="primary">Go somewhere</Button>
-          {counter.data.map((e)=> <h1>{e.name}</h1>)}
+          {counter.data.map((e, i)=> <h1 key={i} >{e.name}</h1>)}
         </Card.Body>
       </Card>
     </Col>
