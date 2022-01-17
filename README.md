@@ -8,4 +8,5 @@ Crear conexiones hacia el api Fake store: [Link](https://fakestoreapi.com/docs)
 4. Crear un boton en el navbar de crear nuevo producto, que redireccione a una nueva página a un formulario de creacion donde debe tener inputs de "title, price, description, image, category". Al darle submit se debe hacer un llamado al [API](https://fakestoreapi.com/docs#p-new)
 5. Crear una nueva ruta con la vista de actualizacion de producto y hacer el llamado al correspondiente API
 6. Arreglar los modales, que rendericen la informacion correcta.
-7. Desplegar en Netlify
+7. Agregar una página de Not found cuando se agregue un link que no existe
+8. Desplegar en Netlify
