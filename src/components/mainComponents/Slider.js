@@ -18,7 +18,7 @@ function SliderComponent(){
 
         <Carousel activeIndex={index} onSelect={handleSelect}>
 
-        {carruselImg.map((item) =><Carousel.Item><img className="d-block w-100" src={item}/>  
+        {carruselImg.map((item) =><Carousel.Item><img className="d-block w-100" src={item} alt={"TEst"}/>  
         </Carousel.Item>
         )}
    
