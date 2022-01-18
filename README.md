@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6f0b510f-ff33-4e4a-99db-5c89f9d5c6ce/deploy-status)](https://app.netlify.com/sites/trusting-swartz-d38681/deploys)
+
+
 # E-commerce exercise
 
 Crear conexiones hacia el api Fake store: [Link](https://fakestoreapi.com/docs)
