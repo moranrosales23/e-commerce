@@ -25,6 +25,7 @@ function CategoriaComponent() {
         >
           {item.name}{" "}
           {process.env.REACT_APP_VIEW2}
+          {process.env.REACT_APP_VIEW2}
           <Badge pill bg="secondary">
             {item.number}
           </Badge>
