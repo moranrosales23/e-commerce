@@ -1,11 +1,10 @@
 import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import MainFunction from "./components/Main";
-import HeaderFuntion from "./components/Header";
 import { GeneralProvider } from "./GeneralProvider";
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Initial } from "./components/Initial";
 
 function App() {
   const [theme, settheme] = useState({ theme: "dark" });
@@ -20,8 +19,12 @@ function App() {
           setcategory,
         }}
       >
-        <HeaderFuntion />
-        <MainFunction />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Initial />} />
+            <Route path="*" element={<h2>Página no Encontrada</h2>} />
+          </Routes>
+        </BrowserRouter>
       </GeneralProvider.Provider>
     </>
   );
