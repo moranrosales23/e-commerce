@@ -1,33 +1,30 @@
+import { useContext, useEffect, useState } from "react";
 import { ListGroup, Badge } from "react-bootstrap";
+import { GeneralProvider } from "../../GeneralProvider";
 import "./Categorias.css";
 function CategoriaComponent() {
-  const arrayItms = [
-    { href: "#link1", name: "Todos", number: 100 },
-    { href: "#link2", name: "Hombre", number: 4 },
-    { href: "#link3", name: "Mujer", number: 12 },
-    { href: "#link4", name: "Hipster", number: 24 },
-    { href: "#link5", name: "Metal", number: 6 },
-    { href: "#link6", name: "Universidad", number: 17 },
-    { href: "#link7", name: "Deportiva", number: 17 },
-    { href: "#link3", name: "Rayas", number: 17 },
-    { href: "#link8", name: "Apretada", number: 17 },
-  ];
+  const [categories, setCategories] = useState([]);
+  const { setcategory } = useContext(GeneralProvider);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API}/products/categories`)
+      .then((response) => response.json())
+      .then((categories) => setCategories(categories));
+  }, []);
 
   return (
-    <ListGroup as="ol" numbered className="component-hidem">
+    <ListGroup as="ol" numbered className="component-hidden">
       <h2>Categorías</h2>
-      {arrayItms.map((item, index) => (
+      {categories.map((item, index) => (
         <ListGroup.Item
           key={index}
           action
-          href={item.href}
           className="d-flex justify-content-between align-items-start"
+          onClick={() => setcategory(item)}
         >
-          {item.name}{" "}
-          {process.env.REACT_APP_VIEW2}
-          {process.env.REACT_APP_VIEW2}
+          {item}{" "}
           <Badge pill bg="secondary">
-            {item.number}
+            100
           </Badge>
         </ListGroup.Item>
       ))}
